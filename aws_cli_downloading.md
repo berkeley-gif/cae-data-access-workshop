@@ -64,3 +64,10 @@ ds['t2'].sel(x=x, y=y, method='nearest').values
 x, y = ll_to_lambert.transform(-118.24, 34.05)
 ds['t2'].sel(x=x, y=y, method='nearest').values
 ```
+Alternatively, we could just access this dataset directly in Python using the S3 path to it:
+```
+ds = xr.open_zarr(
+'s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/', storage_options={'anon': True}
+)
+```
+Looking at the dataset you can see it is exactly the same and can run the same commands as above.

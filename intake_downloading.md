@@ -2,10 +2,14 @@
 
 As part of building [climakitae](https://github.com/cal-adapt/climakitae), we created an [intake](https://github.com/intake/intake) data catalog, that allows for easy programmatic access to the data used on the Cal-Adapt: Analytics Engine, and is specifically an implementation of [intake-ESM](https://intake-esm.readthedocs.io/en/stable/index.html), which is designed for climate data. This catalog can be opened using Python by knowing the URL of the catalog file. 
 
-Best Use: 
+Best Use:
+
 Accessing the **cae-collection** of data in Python without having to download the dataset completely. Allows for spatial and temporal filtering of the data before exporting to the local filesystem. It can also be used to analyze large datasets with Xarray and Dask, and to convert the data to NetCDF if there is sufficient memory.
-Limitations: 
+
+Limitations:
+
 Can only help access data that is in the **cae-collection** intake catalog. Other datasets in the **cadcat** S3 bucket have to be referenced manually using this option. To access all the data in the bucket, look into using the next option, the **climakitae** python package.
+
 Example Usage: 
 
 ```

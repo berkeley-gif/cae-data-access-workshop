@@ -29,7 +29,11 @@ cat2.unique()
 See all the options for LOCA2 monthly. Let's choose the precipitation variable, CESM2-LENS model, and SSP3-7.0 simulation.
 
 ```
-cat2 = cat.search(activity_id='LOCA2', table_id='mon', variable_id='pr', source_id='CESM2-LENS', experiment_id='ssp370')
+cat2 = cat.search(activity_id='LOCA2',
+                  table_id='mon',
+                  variable_id='pr',
+                  source_id='CESM2-LENS',
+                  experiment_id='ssp370')
 cat2.unique()
 cat2
 ```
@@ -37,7 +41,12 @@ cat2
 LOCA2 has an extra layer over WRF - member_id which are different runs of the model. To get to one dataset we can choose a member_id.
 
 ```
-cat2 = cat.search(activity_id='LOCA2', table_id='mon', variable_id='pr', source_id='CESM2-LENS', experiment_id='ssp370', member_id='r1i1p1f1')
+cat2 = cat.search(activity_id='LOCA2',
+                  table_id='mon',
+                  variable_id='pr',
+                  source_id='CESM2-LENS',
+                  experiment_id='ssp370',
+                  member_id='r1i1p1f1')
 cat2.unique()
 cat2
 ```

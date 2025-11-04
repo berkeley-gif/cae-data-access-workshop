@@ -1,6 +1,6 @@
-Downloading AE data using the AWS Command Line Interface (CLI)
+# Downloading AE data using the AWS Command Line Interface (CLI)
 
-The free AWS Command Line Interface (CLI) tool is useful for bulk downloading entire directory structures of data at once, or downloading Zarr stores (which are directory structures) to a local machine. The AWS CLI is an open source tool enabling the use of the command-line shell to access and interact with the Analytics Engine S3 bucket directly. This tool simplifies downloading all the data in a dataset. 
+The free [AWS Command Line Interface (CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) tool is useful for bulk downloading entire directory structures of data at once, or downloading Zarr stores (which are directory structures) to a local machine. The AWS CLI is an open source tool enabling the use of the command-line shell to access and interact with the [Analytics Engine S3 bucket](https://cadcat.s3.amazonaws.com/index.html) directly. This tool simplifies downloading all the data in a dataset. 
 
 Best Use: 
 
@@ -12,4 +12,4 @@ Must download the entire dataset, whether it is NetCDF or Zarr store. Can not sp
 
 Example Usage: 
 
-Natively, AWS S3 does not store data in a traditional directory structure but instead uses keys to the binary data stored there. The AWS Explorer represents the data keys as directories for convenience. Users can first utilize either the  AWS Explorer or Data Catalog to find the path to the data of interest. The following is an example of listing the bucket data using AWS CLI to display the variables available for this model:
+Natively, AWS S3 does not store data in a traditional directory structure but instead uses keys to the binary data stored there. The AWS Explorer represents the data keys as directories for convenience. Users can first utilize either the  [AWS Explorer](https://cadcat.s3.amazonaws.com/index.html) or [Data Catalog](https://analytics.cal-adapt.org/data/catalog/) to find the path to the data of interest. The following is an example of listing the bucket data using AWS CLI to display the variables available for this model:

@@ -8,7 +8,7 @@ Accessing the **cae-collection** of data in Python without having to download th
 
 Limitations:
 
-Can only help access data that is in the **cae-collection** intake catalog. Other datasets in the **cadcat** S3 bucket have to be referenced manually using this option. To access all the data in the bucket, look into using the next option, the **climakitae** python package.
+Can only help access data that is in the **cae-collection** intake catalog. Other datasets in the **cadcat** S3 bucket have to be referenced manually using this option. To access all the data in the bucket, look into the **climakitae** python package.
 
 Example Usage: 
 

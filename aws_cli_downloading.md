@@ -70,4 +70,4 @@ ds = xr.open_zarr(
 's3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/', storage_options={'anon': True}
 )
 ```
-Looking at the dataset you can see it is exactly the same and can run the same commands as above.
+Looking at the dataset you can see it is exactly the same and can run the same commands as above and get the same results.

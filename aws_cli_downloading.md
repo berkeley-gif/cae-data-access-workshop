@@ -16,25 +16,38 @@ Natively, AWS S3 does not store data in a traditional directory structure but in
 
 The following is an example of listing the bucket data using AWS CLI to display the variables available for this model:
 ```
-# List variables for WRF monthly for CESM2 SSP3-7.0
+# List variables for WRF monthly for CESM2 SSP3-7.0 using the `s3 ls` command:
 aws s3 ls --no-sign-request s3://cadcat/wrf/ucla/cesm2/ssp370/mon/
 ```
-Download WRF t2 monthly using AWS CLI command:
+The `--no-sign-request` option is needed for anonymous S3 access.
+
+Download WRF t2 monthly using the `s3 cp` AWS CLI command:
 ```
 # Download Air temperature at 2m
 aws s3 cp s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/ wrf/ucla/cesm2/ssp370/mon/t2/d01/--no-sign-request --recursive
 ```
+We add the `--recursive` option to get all data at this level and below.
+
+Now let us open this Zarr store in a Python shell:
 
 ```
 import xarray as xr
 ds = xr.open_zarr('wrf/ucla/cesm2/ssp370/mon/t2/d01')
+ds
+# You can see the shape of the dataset with temperature at monthly intervals.
+# Also note that the WRF data is stored in Lambert Conformal Conic projection.
+# To find a location using latitude and longitude we have to project that point.
 import rioxarray as rio
 import pyproj
-ll_to_lambert = pyproj.Transformer.from_crs(crs_from="epsg:4326",crs_to=result.rio.crs,always_xy=True)
-x, y = ll_to_lambert.transform(-121.23,38.33)
-ds['TX99p'].sel(x=x,y=y,method='nearest').values
-x, y = ll_to_lambert.transform(-122.27,37.87))
-ds['TX99p'].sel(x=x,y=y,method='nearest').values
-x, y = ll_to_lambert.transform(-118.24,34.05)
-ds['TX99p'].sel(x=x,y=y,method='nearest').values
+# Function to transform the coordinates
+ll_to_lambert = pyproj.Transformer.from_crs(crs_from="epsg:4326", crs_to=result.rio.crs, always_xy=True)
+# Show values at Sacramento
+x, y = ll_to_lambert.transform(-121.23, 38.33)
+ds['t2'].sel(x=x,y=y,method='nearest').values
+# Show values at Berkeley
+x, y = ll_to_lambert.transform(-122.27, 37.87))
+ds['t2'].sel(x=x,y=y,method='nearest').values
+# Show values at Los Angeles
+x, y = ll_to_lambert.transform(-118.24, 34.05)
+ds['t2'].sel(x=x,y=y,method='nearest').values
 ```

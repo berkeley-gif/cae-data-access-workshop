@@ -33,20 +33,33 @@ Now let us open this Zarr store in a Python shell:
 ```
 import xarray as xr
 ds = xr.open_zarr('wrf/ucla/cesm2/ssp370/mon/t2/d01')
+```
+```
 ds
 # You can see the shape of the dataset with temperature at monthly intervals.
 # Also note that the WRF data is stored in Lambert Conformal Conic projection.
 # To find a location using latitude and longitude we have to project that point.
+```
+```
+# Import projection helpers
 import rioxarray as rio
 import pyproj
+```
+```
 # Function to transform the coordinates
 ll_to_lambert = pyproj.Transformer.from_crs(crs_from="epsg:4326", crs_to=result.rio.crs, always_xy=True)
+```
+```
 # Show values at Sacramento
 x, y = ll_to_lambert.transform(-121.23, 38.33)
 ds['t2'].sel(x=x,y=y,method='nearest').values
+```
+```
 # Show values at Berkeley
 x, y = ll_to_lambert.transform(-122.27, 37.87))
 ds['t2'].sel(x=x,y=y,method='nearest').values
+```
+```
 # Show values at Los Angeles
 x, y = ll_to_lambert.transform(-118.24, 34.05)
 ds['t2'].sel(x=x,y=y,method='nearest').values

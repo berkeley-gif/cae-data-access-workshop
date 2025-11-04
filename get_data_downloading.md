@@ -54,7 +54,7 @@ from climakitae.core.data_interface import get_subsetting_options
 get_subsetting_options(area_subset="CA counties")
 ```
 
-You can see the list of 58 California counties that can be used to clip the data. Let us grab SSP 3-7.0 for Sacramento County:
+You can see the list of 58 California counties that can be used to clip the data. Let us grab SSP 3-7.0 for Sacramento County for time period 2070-2100 and return the data in degrees Celsius:
 
 ```
 data = get_data(downscaling_method="Statistical",
@@ -62,7 +62,9 @@ data = get_data(downscaling_method="Statistical",
                 variable="Maximum air temperature at 2m",
                 resolution="3 km",
                 scenario="SSP 3-7.0",
-                cached_area="Sacramento County")
+                cached_area="Sacramento County",
+                time_slice=(2070,2100),
+                units="degC")
 data
 ```
 

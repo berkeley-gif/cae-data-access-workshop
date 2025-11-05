@@ -13,7 +13,7 @@ Climakitae includes built-in methods to aid in the retrieval of data from the ca
 
 Best Use:
 
-Powerful functionality allows users to retrieve data by warming level, by spatial and/or temporal filtering, by spatial and/or temporal aggregation, by derived variable, or by concatenated timeseries for historical and future scenarios. Allows users to utilize all of the CA: AE software functionality contained within the CA: AE JupyterHUB, especially when combined with the notebooks developed for the HUB: cae-notebooks 
+Powerful functionality allows users to retrieve data by warming level, by spatial and/or temporal filtering, by spatial and/or temporal aggregation, by derived variable, or by concatenated timeseries for historical and future scenarios. Allows users to utilize all of the CA: AE software functionality contained within the CA: AE JupyterHUB, especially when combined with the notebooks developed for the HUB: [cae-notebooks](https://github.com/cal-adapt/cae-notebooks) 
 
 Limitations: 
 

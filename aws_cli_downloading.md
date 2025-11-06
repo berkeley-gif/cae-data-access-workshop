@@ -24,7 +24,7 @@ The `--no-sign-request` option is needed for anonymous S3 access.
 Download WRF t2 monthly using the `s3 cp` AWS CLI command:
 ```
 # Download Air temperature at 2m
-aws s3 cp s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/ wrf/ucla/cesm2/ssp370/mon/t2/d01/--no-sign-request --recursive
+aws s3 cp s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/ wrf/ucla/cesm2/ssp370/mon/t2/d01/ --no-sign-request --recursive
 ```
 We add the `--recursive` option to get all data at this level and below.
 

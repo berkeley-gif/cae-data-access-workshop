@@ -68,7 +68,7 @@ data = get_data(downscaling_method="Statistical",
 data
 ```
 
-You can see from the time range and simulations that we got both the historical and future time range and all 62 simulations. Let us focus on 1 simulation, MIROC6:
+You can see from the simulations that we got all 62 simulations. Let us focus on 1 simulation, MIROC6:
 
 ```
 data1 = data.sel(simulation='LOCA2_MIROC6_r1i1p1f1')

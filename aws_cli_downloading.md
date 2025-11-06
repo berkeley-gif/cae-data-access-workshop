@@ -47,7 +47,7 @@ import pyproj
 ```
 ```
 # Function to transform the coordinates
-ll_to_lambert = pyproj.Transformer.from_crs(crs_from="epsg:4326", crs_to=result.rio.crs, always_xy=True)
+ll_to_lambert = pyproj.Transformer.from_crs(crs_from="epsg:4326", crs_to=ds.rio.crs, always_xy=True)
 ```
 ```
 # Show values at Sacramento

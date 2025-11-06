@@ -1,6 +1,6 @@
 # Access Cal-Adapt: Analytics Engine Zarr data using Intake Python package
 
-As part of building [climakitae](https://github.com/cal-adapt/climakitae), we created an [intake](https://github.com/intake/intake) data catalog, that allows for easy programmatic access to the data used on the Cal-Adapt: Analytics Engine, and is specifically an implementation of [intake-ESM](https://intake-esm.readthedocs.io/en/stable/index.html), which is designed for climate data. This catalog can be opened using Python by knowing the URL of the catalog file. 
+As part of building [climakitae](https://github.com/cal-adapt/climakitae), we created an [intake](https://github.com/intake/intake) data catalog, that allows for easy programmatic access to the data used on the Cal-Adapt: Analytics Engine, and is specifically an implementation of [intake-ESM](https://intake-esm.readthedocs.io/en/stable/index.html)(Earth System Model), which is designed for climate data. This catalog can be opened using Python by knowing the URL of the catalog file. 
 
 Best Use:
 

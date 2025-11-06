@@ -30,7 +30,13 @@ cat2 = cat.search(activity_id='LOCA2', table_id='mon')
 cat2.unique()
 ```
 
-See all the options for LOCA2 monthly. Let's choose the precipitation variable, CESM2-LENS model, and SSP3-7.0 simulation.
+You can filter for LOCA2 monthly and see all the options. You can then see the list of variables by running this:
+
+```
+cat2.unique()['variable_id']
+```
+
+From this list let us choose the precipitation variable, CESM2-LENS model, and SSP3-7.0 simulation.
 
 ```
 cat2 = cat.search(activity_id='LOCA2',
@@ -68,7 +74,7 @@ This function can return multiple datasets and is returned as a dictionary. We c
 ds = dset_dict['LOCA2.UCSD.CESM2-LENS.ssp370.mon.d03']
 ```
 
-Now that we have the precipation data let us calculate yearly totals in inches. Natively, the pr variable is a rate with kg m-2 s-1 as units us we need to convert to inches:
+Now that we have the precipation data let us calculate yearly totals in inches. Natively, the pr variable is a rate with kg m-2 s-1 as units so we need to convert to inches:
 
 ```
 year = ds['time'].dt.year

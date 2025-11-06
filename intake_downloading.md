@@ -112,5 +112,5 @@ You can see that the rainfall average increases at end of century.
 Finally, you can export the yearly averaged data:
 
 ```
-ds.to_netcdf('test_pr_yearly_avg.nc', encoding={k: {'zlib': True, 'complevel': 6} for k in ds})
+ds.to_netcdf('loca2.ucsd.cesm2-lens.ssp370.mon.d03.nc', encoding={k: {'zlib': True, 'complevel': 6} for k in ds})
 ```

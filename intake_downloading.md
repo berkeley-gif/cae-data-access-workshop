@@ -12,25 +12,30 @@ Can only help access data that is in the **cae-collection** intake catalog. Othe
 
 Example Usage: 
 
+Import the intake package
 ```
 import intake
 ```
-Import the intake package
 
+Open the intake ESM data catalog stored in the S3 bucket
 ```
 cat = intake.open_esm_datastore(
     'https://cadcat.s3.amazonaws.com/cae-collection.json'
 )
 ```
 
-Open the intake ESM data catalog stored in the S3 bucket
+You can see all the unique catalog entries using:
 
+```
+cat.unique()
+```
+
+You can then filter for LOCA2 monthly and see all the options.
 ```
 cat2 = cat.search(activity_id='LOCA2', table_id='mon')
 cat2.unique()
 ```
-
-You can filter for LOCA2 monthly and see all the options. You can then see the list of variables by running this:
+You can then see the list of variables by running this command:
 
 ```
 cat2.unique()['variable_id']

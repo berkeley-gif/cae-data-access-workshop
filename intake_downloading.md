@@ -19,9 +19,7 @@ import intake
 
 Open the intake ESM data catalog stored in the S3 bucket
 ```
-cat = intake.open_esm_datastore(
-    'https://cadcat.s3.amazonaws.com/cae-collection.json'
-)
+cat = intake.open_esm_datastore('https://cadcat.s3.amazonaws.com/cae-collection.json')
 ```
 
 You can see all the unique catalog entries using:

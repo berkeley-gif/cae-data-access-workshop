@@ -36,7 +36,15 @@ aws s3 cp s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/ wrf/ucla/cesm2/ssp370/mo
 ```
 We add the `--recursive` option to get all data at this level and below.
 
-Now let us open this Zarr store in a Python shell:
+
+Another command example shows the use of the `--include` and `--exclude` flags in AWS CLI to download all available models for a particular variable:
+
+```
+aws s3 cp s3://cadcat/loca2/aaa-ca-hybrid . --no-sign-request --recursive --exclude '*' --include '*tasmax*'
+```
+
+
+Now let us open the monthly data in a Python shell:
 
 ```
 import xarray as xr
@@ -75,9 +83,3 @@ ds = xr.open_zarr(
 )
 ```
 Looking at the dataset you can see it is exactly the same and can run the same commands as above and get the same results.
-
-To finish we can look at a command that will uses the `--include` and `--exclude` flags in AWS CLI to download all available models for a particular variable:
-
-```
-aws s3 cp s3://cadcat/loca2/aaa-ca-hybrid . --no-sign-request --recursive --exclude '*' --include '*tasmax*'
-```

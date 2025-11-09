@@ -21,6 +21,12 @@ aws s3 ls --no-sign-request s3://cadcat/wrf/ucla/cesm2/ssp370/mon/
 ```
 The `--no-sign-request` option is needed for anonymous S3 access.
 
+AWS CLI can be used to find out the size of the download before actually syncing the data to a local machine:
+
+```
+aws s3 ls --summarize --human-readable --recursive --no-sign-request s3://cadcat/wrf/ucla/miroc6/ssp370/1hr/t2/d03
+```
+
 Download WRF t2 monthly using the `s3 cp` AWS CLI command:
 ```
 # Download Air temperature at 2m

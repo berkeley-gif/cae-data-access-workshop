@@ -24,7 +24,9 @@ The `--no-sign-request` option is needed for anonymous S3 access.
 AWS CLI can be used to find out the size of the download before actually syncing the data to a local machine:
 
 ```
+# Calculate size of data on S3
 aws s3 ls --summarize --human-readable --recursive --no-sign-request s3://cadcat/wrf/ucla/miroc6/ssp370/1hr/t2/d03
+# This will return 207GB
 ```
 
 Download WRF t2 monthly using the `s3 cp` AWS CLI command:

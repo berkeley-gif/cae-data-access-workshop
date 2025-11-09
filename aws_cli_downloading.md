@@ -79,3 +79,9 @@ ds = xr.open_zarr(
 )
 ```
 Looking at the dataset you can see it is exactly the same and can run the same commands as above and get the same results.
+
+To finish we can look at a command that will uses the `--include` and `--exclude` flags in AWS CLI to download all available models for a particular variable:
+
+```
+aws s3 cp s3://cadcat/loca2/aaa-ca-hybrid . --no-sign-request --recursive --exclude '*' --include '*tasmax*'
+```

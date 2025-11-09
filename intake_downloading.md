@@ -84,32 +84,31 @@ Now that we have the precipation data let us calculate yearly totals in inches. 
 ```
 year = ds['time'].dt.year
 ds = ds.assign_coords({'year':year})
+ds
 ```
 
 This adds year as a coordinate to the data
 
 ```
-pr = ds['pr']
-pr = pr * pr['time'].dt.days_in_month
-pr = (pr * 86400) / 25.4
+ds['pr'] = ds['pr'] * ds['time'].dt.days_in_month
+ds['pr'] = (ds['pr'] * 86400) / 25.4
 ```
 
 Converts to a xarray DataArray and then converts the units. We can then summarize the data by year.
 
 ```
-result = pr.groupby('year').sum('time')
-result.sel(lat=38.33,lon=-121.23,method='nearest').values
+pr_by_year = ds['pr'].groupby('year').sum('time')
+pr_by_year.sel(lat=38.33, lon=-121.23, method='nearest').values
 ```
 
 You can see the wetter/dryer year variance here. Let us get the 30yr average monthly rainfall in inches for the beginning of the timeseries and the end:
 
 ```
-time1 = pr.sel(time=slice('2015-01-01','2044-12-31'))
-time2 = pr.sel(time=slice('2070-01-01','2099-12-31'))
-avg1 = time1.mean('time')
-avg2 = time2.mean('time')
-avg1.sel(lat=38.33,lon=-121.23,method='nearest').values
-avg2.sel(lat=38.33,lon=-121.23,method='nearest').values
+avg1 = ds['pr'].sel(time=slice('2015-01-01', '2044-12-31')).mean('time')
+avg2 = ds['pr'].sel(time=slice('2070-01-01', '2099-12-31')).mean('time')
+# Look at Sacramento data
+avg1.sel(lat=38.33, lon=-121.23, method='nearest').values
+avg2.sel(lat=38.33, lon=-121.23, method='nearest').values
 ```
 
 You can see that the rainfall average increases at end of century.

@@ -62,11 +62,7 @@ ll_to_lambert = pyproj.Transformer.from_crs(crs_from="epsg:4326", crs_to=ds.rio.
 x, y = ll_to_lambert.transform(-121.23, 38.33)
 ds['t2'].sel(x=x, y=y, method='nearest').values
 ```
-```
-# Show values at Berkeley
-x, y = ll_to_lambert.transform(-122.27, 37.87)
-ds['t2'].sel(x=x, y=y, method='nearest').values
-```
+
 ```
 # Show values at Los Angeles
 x, y = ll_to_lambert.transform(-118.24, 34.05)

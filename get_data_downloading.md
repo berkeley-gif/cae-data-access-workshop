@@ -7,7 +7,7 @@ A powerful Python toolkit for climate data retrieval and analysis has been devel
 - Spatial Analysis Tools: Built-in support for geographic subsetting and spatial aggregation
 - Climate Indices: Calculate heat indices, warming levels, and extreme event metrics
 - Flexible Data Export: Export to NetCDF, CSV, and Zarr
-- GUI Integration: Works seamlessly with climakitaegui for interactive analysis
+- GUI Integration: Works seamlessly with [climakitaegui](https://github.com/cal-adapt/climakitaegui) for interactive analysis
 
 Climakitae includes built-in methods to aid in the retrieval of data from the cadcat S3 bucket that are more intuitive and user-friendly than the previous Python examples. 
 

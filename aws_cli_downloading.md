@@ -16,7 +16,7 @@ Natively, AWS S3 does not store data in a traditional directory structure but in
 
 The following is an example of listing the bucket data using AWS CLI to display the variables available for this model:
 ```
-# List variables for WRF monthly for CESM2 SSP3-7.0 using the `s3 ls` command:
+:: List variables for WRF monthly for CESM2 SSP3-7.0 using the `s3 ls` command:
 aws s3 ls --no-sign-request s3://cadcat/wrf/ucla/cesm2/ssp370/mon/
 ```
 The `--no-sign-request` option is needed for anonymous S3 access.
@@ -24,14 +24,14 @@ The `--no-sign-request` option is needed for anonymous S3 access.
 AWS CLI can be used to find out the size of the download before actually syncing the data to a local machine:
 
 ```
-# Calculate size of data on S3
+:: Calculate size of data on S3
 aws s3 ls --summarize --human-readable --recursive --no-sign-request s3://cadcat/wrf/ucla/miroc6/ssp370/1hr/t2/d03
-# This will return 207GB
+:: This will return 207GB
 ```
 
 Download WRF t2 monthly using the `s3 cp` AWS CLI command:
 ```
-# Download Air temperature at 2m
+:: Download Air temperature at 2m
 aws s3 cp s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/ wrf/ucla/cesm2/ssp370/mon/t2/d01/ --no-sign-request --recursive
 ```
 We add the `--recursive` option to get all data at this level and below.

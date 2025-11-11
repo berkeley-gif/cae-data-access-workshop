@@ -52,40 +52,61 @@ This command will get 34GB of data.
 
 Let’s now take a look at this data in Python.
 
+First we import xarray, a multi dimensional array processing package. It can open netCDF as well as Zarr.
 ```
 import xarray as xr
+```
+
+We then use the `open_zarr()` command.
+
+```
 ds = xr.open_zarr('wrf/ucla/cesm2/ssp370/mon/t2/d01')
-```
-```
 ds
-# You can see the shape of the dataset with temperature at monthly intervals.
-# Also note that the WRF data is stored in Lambert Conformal Conic projection.
-# To find a location using latitude and longitude we have to project that point.
 ```
+
+The dataset is now a Python object and you can see the coordinates: x, y and time. Looking at the x and y you can see that they are large numbers. That is because WRF is stored in a custom Lambert Conformal Conic projection, whereas the LOCA2 data are stored in lat and long. In order to use lat and long we need to transform the coordinate into the correct projection.
+
+We can use these packages and code to do that.
 ```
-# Import projection helpers
 import rioxarray as rio
 import pyproj
 ```
+
 ```
 # Function to transform the coordinates
 ll_to_lambert = pyproj.Transformer.from_crs(crs_from="epsg:4326", crs_to=ds.rio.crs, always_xy=True)
 ```
+
+The Lambert projection info is stored as an attribute of the dataset.
+
+Now we can look at the values for the dataset at Sacramento’s lat and long.
 ```
 # Show values at Sacramento
 x, y = ll_to_lambert.transform(-121.23, 38.33)
 ds['t2'].sel(x=x, y=y, method='nearest').values
 ```
+The temperature values are in Kelvin for each of the time steps.
+
+We can do the same for Los Angeles and see that the values are different.
+```
+# Show values at Los Angeles
+x, y = ll_to_lambert.transform(-118.24, 34.05)
+ds['t2'].sel(x=x, y=y, method='nearest').values
+```
+Instead of downloading the data we can actually load it directly from S3, using the same command but instead using the S3 path to the data.
+```
+ds = xr.open_zarr(
+'s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/', storage_options={'anon': True}
+)
+ds
+```
+We can then run the same commands and get the same answers but without actually downloading the whole dataset.
+
+Let's get Los Angeles data from S3 directly.
 
 ```
 # Show values at Los Angeles
 x, y = ll_to_lambert.transform(-118.24, 34.05)
 ds['t2'].sel(x=x, y=y, method='nearest').values
 ```
-Alternatively, we could just access this dataset directly in Python instead of downloading the dataset:
-```
-ds = xr.open_zarr(
-'s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/', storage_options={'anon': True}
-)
-```
-Looking at the dataset you can see it is exactly the same and can run the same commands as above and get the same results.
+This covers the basics of using the AWS CLI to download Analytics Engine data from S3.

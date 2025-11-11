@@ -46,7 +46,7 @@ aws s3 cp s3://cadcat/loca2/aaa-ca-hybrid . --no-sign-request --recursive --excl
 ```
 This command will get 34GB of data.
 
-Now let us open the monthly data in a Python shell:
+Let’s now take a look at this data in Python.
 
 ```
 import xarray as xr

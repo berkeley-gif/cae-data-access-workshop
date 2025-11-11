@@ -1,6 +1,6 @@
 # Accessing or downloading data using the  climakitae Python package
 
-A powerful Python toolkit for climate data retrieval and analysis has been developed as part of the AE project, climakitae. The main features of the toolset are:
+A powerful Python toolkit for climate data retrieval and analysis has been developed as part of the AE project, [climakitae](https://github.com/cal-adapt/climakitae). The main features of the toolset are:
 
 - Comprehensive Climate Data Access: Retrieve climate variables from hosted climate models
 - Downscaled Climate Models: Access dynamical (WRF) and statistical (LOCA2) downscaling methods

@@ -31,13 +31,16 @@ aws s3 ls --summarize --human-readable --recursive --no-sign-request s3://cadcat
 
 For this hourly data it is 207 gigabytes, which will take quite some time to download.
 
-Now you can download the monthly data using the `s3 cp` command.
+Now you can download the WRF monthly data using the `s3 cp` command.
 ```
-:: Download Air temperature at 2m
+:: Download WRF Air temperature at 2m
 aws s3 cp s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/ wrf/ucla/cesm2/ssp370/mon/t2/d01/ --no-sign-request --recursive
 ```
-We add the `--recursive` option to get all data at this level and below.
-
+And here is an example LOCA2 download.
+```
+:: Download LOCA2 Maximum air temperature at 2m
+aws s3 cp s3://cadcat/loca2/ucsd/fgoals-g3/ssp585/r1i1p1f1/mon/tasmax/d03/ loca2/ucsd/fgoals-g3/ssp585/r1i1p1f1/mon/tasmax/d03/ --no-sign-request --recursive
+```
 Another example which I won’t run uses the `--include` and `--exclude` options to download netCDF temperature data for all LOCA2 models.
 
 ```

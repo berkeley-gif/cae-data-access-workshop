@@ -14,14 +14,14 @@ Example Usage:
 
 Natively, AWS S3 does not store data in a traditional directory structure but instead uses keys to the binary data stored there. The AWS Explorer represents the data keys as directories for convenience. Users can first utilize either the  [AWS Explorer](https://cadcat.s3.amazonaws.com/index.html) or [Data Catalog](https://analytics.cal-adapt.org/data/catalog/) to find the path to the data of interest.
 
-The following is an example of listing the bucket data using AWS CLI to display the variables available for this model:
+You can use the CLI `s3 ls` command to list the variables available for WRF, monthly, for this model and SSP.
 ```
 :: List variables for WRF monthly for CESM2 SSP3-7.0 using the `s3 ls` command:
 aws s3 ls --no-sign-request s3://cadcat/wrf/ucla/cesm2/ssp370/mon/
 ```
-The `--no-sign-request` option is needed for anonymous S3 access.
+The `--no-sign-request` option tells the CLI no authentication is required, since this is a public S3 bucket.
 
-AWS CLI can be used to find out the size of the download before actually syncing the data to a local machine:
+You can then use the CLI to find out the size of a dataset before downloading it. The `summarize` option calculates the total size of the files.
 
 ```
 :: Calculate size of data on S3
@@ -29,20 +29,22 @@ aws s3 ls --summarize --human-readable --recursive --no-sign-request s3://cadcat
 :: This will return 207GB
 ```
 
-Download WRF t2 monthly using the `s3 cp` AWS CLI command:
+For this hourly data it is 207 gigabytes, which will take quite some time to download.
+
+Now you can download the monthly data using the `s3 cp` command.
 ```
 :: Download Air temperature at 2m
 aws s3 cp s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/ wrf/ucla/cesm2/ssp370/mon/t2/d01/ --no-sign-request --recursive
 ```
 We add the `--recursive` option to get all data at this level and below.
 
-
-Another command example shows the use of the `--include` and `--exclude` flags in AWS CLI to download all available models for a particular variable:
+Another example which I won’t run uses the `--include` and `--exclude` options to download netCDF temperature data for all LOCA2 models.
 
 ```
 aws s3 cp s3://cadcat/loca2/aaa-ca-hybrid . --no-sign-request --recursive --exclude '*' --include '*tasmax*'
+:: This will return 34GB of data
 ```
-
+This command will get 34GB of data.
 
 Now let us open the monthly data in a Python shell:
 

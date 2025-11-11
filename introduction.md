@@ -1,6 +1,6 @@
 # Accessing and Downloading Cal-Adapt: Analytics Engine data
 
-This workshop will go over 3 of the many ways to access and download the nearly 1 petabyte of Cal-Adapt: Analytics Engine (CA: AE) data stored in the Cloud. With the scale of the data it is very useful to have software tools, such as AWS CLI and Python, to aid in accessing and downloading the data.
+Today I am going to demo 3 of the many ways to access and download the nearly one petabyte of Cal Adapt Analytics Engine data stored in the cloud. With such a large amount of data it is very useful to have software tools such as Amazon Web Services Command Line Interface, AWS CLI, and Python to aid us in accessing and downloading the data.
 
 ## Software Used in this demonstration
 

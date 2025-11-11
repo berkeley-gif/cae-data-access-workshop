@@ -36,6 +36,7 @@ Now you can download the WRF monthly data using the `s3 cp` command.
 :: Download WRF Air temperature at 2m
 aws s3 cp s3://cadcat/wrf/ucla/cesm2/ssp370/mon/t2/d01/ wrf/ucla/cesm2/ssp370/mon/t2/d01/ --no-sign-request --recursive
 ```
+This is quick because it is monthly data.
 And here is an example LOCA2 download.
 ```
 :: Download LOCA2 Maximum air temperature at 2m

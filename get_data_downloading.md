@@ -102,7 +102,7 @@ We can see here that we have the temperature in centigrade for each year from 20
 We can now use this command to load the entire dataset we created into memory so we can visualize it.
 
 ```
-ck.load(data2)
+data2 = ck.load(data2)
 ```
 
 Now that we have the data loaded into memory, we can use the climakitaegui function called `view()`. This creates a simple visualization of the data.

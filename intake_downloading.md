@@ -37,7 +37,7 @@ cat2.unique()
 
 `source_id` are models.
 
-`experiment_id` are simulations.
+`experiment_id` are scenarios.
 
 `member_id` are the runs - WRF will have only one.
 
@@ -55,7 +55,7 @@ You can use this command to list the available variables.
 cat2.unique()['variable_id']
 ```
 
-Let us pick PR, which is precipitation. Let's also filter for this model and simulation.
+Let us pick PR, which is precipitation. Let's also filter for this model and scenario.
 
 ```
 cat2 = cat.search(activity_id='LOCA2',

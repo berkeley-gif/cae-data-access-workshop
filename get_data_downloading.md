@@ -115,4 +115,8 @@ We can see here this is Sacramento County. And if you hover over the map, you ge
 
 We can export the data using climakitae. It can export to netCDF, CSV, and Zarr.
 
+```
+ck.export(data2, 'tasmax_avg_yr.nc', 'netCDF')
+```
+
 That's the basics of how to download data from the S3 bucket using climatekitae.

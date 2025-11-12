@@ -74,6 +74,8 @@ data
 
 We can see here that we have maximum air temperature at two meters. For one scenario and 62 simulations. It has brought back all the simulations for this data.
 
+Simulations are the combination of model and scenario runs.
+
 Let’s select for one particular simulation, MIROC6.
 
 ```
